@@ -1,0 +1,1 @@
+C:\Users\Jimenez\Documents\GitHub\DiscordHosting\venv\Scripts\python.exe C:\Users\Jimenez\Documents\GitHub\DiscordHosting\src\app.py
