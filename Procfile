@@ -1,1 +1,1 @@
-web: gunicorn app:Client
+web: gunicorn app.Client
