@@ -7,6 +7,7 @@ from discord.ext import commands
 import datetime
 from discord.file import File
 from discord.flags import Intents
+import requests
 
 #Lista de Variables
 Prefix = ">"
@@ -39,7 +40,7 @@ async def on_ready():                                               #Bot Startup
 @Client.event
 async def on_command_error(ctx, error):                             #Manejo de errores
     await ctx.send(error)
-    await ctx.message.delete()
+    #await ctx.message.delete()
     print(f"[{datetime.datetime.utcnow()}/Error]: {ctx.message.author} {error}")
 
 #Commands
@@ -67,7 +68,7 @@ async def kick(ctx, member: discord.Member, *, reason = "None"):    #Kick Member
 async def say(ctx, File:str, *, arg = ""):                          #Escribir Chat
     await ctx.message.delete()
     if File != ".":
-        await ctx.send(arg, file = discord.File(File))
+        await ctx.send(arg, file = discord.File(requests.get(File).content))
     else:
         await ctx.send(arg)
 
