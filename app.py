@@ -81,7 +81,7 @@ async def say(ctx, File:str, *, arg = ""):                          #Escribir Ch
     if File != ".":
         if File == "relations" or "communications" or "info" or "economic" or 'aduana' or 'servidor':
             now = datetime.datetime.now()
-            await ctx.send(conf.formats.diccionary[File].format(Months[int(now.month)-1], now.day, now.year, arg)) 
+            await ctx.send(conf.formats.diccionary[File].format(month = Months[int(now.month)-1], day = now.day, year = now.year, arg = arg)) 
         else:
             await ctx.send(arg)
     else:

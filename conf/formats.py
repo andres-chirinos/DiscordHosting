@@ -1,10 +1,10 @@
 diccionary = {
-'relations':"""_**Inicio** las relaciones diplomáticas **Canadiense - {}**, {} {}, {}._""",
+'relations':"""_**Inicio** las relaciones diplomáticas **Canadiense - {arg}**, {month} {day}, {year}._""",
   
   
-'communications':"""```_ᴄᴏᴍᴜɴɪᴄᴀᴅᴏ ᴏꜰɪᴄɪᴀʟ ᴅᴇʟ ɢᴏʙɪᴇʀɴᴏ | {} {}, {}.  🇨🇦 _
+'communications':"""```_ᴄᴏᴍᴜɴɪᴄᴀᴅᴏ ᴏꜰɪᴄɪᴀʟ ᴅᴇʟ ɢᴏʙɪᴇʀɴᴏ | {month} {day}, {year}.  🇨🇦 _
 
->  _ {} _
+>  _ {arg} _
 
 
 _Atentamente.
@@ -23,7 +23,7 @@ _Atentamente.
 > **División Política.** 6 Provincias (Quebec, Ontario, Nunavut, Alberta, Yukon y Columbia).
 > **Unidad Monetaria.** [£] Libras y [¢] Geocoins.
 > **Fiesta Nacional.** [182] Julio 1ro, Dia de Canadá.
-Datos a fecha {} {}, {}.
+Datos a fecha {month} {day}, {year}.
 _
 https://cdn.discordapp.com/attachments/917550479855222804/930265582966833194/PoliticMap.png""",
   
@@ -38,7 +38,7 @@ https://cdn.discordapp.com/attachments/917550479855222804/930265582966833194/Pol
 > **Productos.** Diamantes, Oro, Hierro, Carbón, Maderas, etc.
 > **Inversiones.** 0£
 > **Deuda Externa.** 0£
-Datos a fecha {} {}, {}.
+Datos a fecha {month} {day}, {year}.
 _
 https://cdn.discordapp.com/attachments/917550479855222804/930265583235260416/EconomicZonesMap.png""",
 
