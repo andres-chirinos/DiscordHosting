@@ -2,6 +2,7 @@
 #from inspect import Parameter
 import discord
 from discord import client
+from discord.embeds import Embed
 from discord.errors import ClientException
 from discord.ext import commands
 from discord.utils import get
@@ -86,6 +87,14 @@ async def say(ctx, File:str, *, arg = ""):                          #Escribir Ch
             await ctx.send(arg)
     else:
         await ctx.send(arg)
+
+@Client.command(pass_context = True)
+@commands.has_permissions(administrator = True)
+async def embed(ctx,title = "", desc = "", thumbnail = "", *, arg = ""):
+    if thumbnail == ".":    thumbnail = ctx.guild.icon_url
+
+    Embed = Create_Embed(Title = title, Description = desc, Fields = (('1st field',f'{arg}'),('2nd field',f'{arg}')), Color = discord.Color.red(), Thumbnail = thumbnail)
+    await ctx.send(embed = Embed)
 
 @Client.command(pass_context = True)
 @commands.has_permissions(manage_roles = True)                      #Add/Remove Role
