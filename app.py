@@ -59,8 +59,13 @@ async def info(ctx):                                                #Server Info
     await ctx.send(embed = Embed)
 
 @Client.command(pass_context = True)
+@commands.has_permissions(manage_messages = True)
 async def hello(ctx, Member: discord.Member):                       #Say hello
     await ctx.send(f'Bienvenido {Member} al servidor!.')
+
+@Client.command(pass_context = True)
+async def ping(ctx):                                                #Ping response
+    await ctx.channel.send(f"Pong {round(client.latency*1000)} ms", em)
 
 @Client.command(pass_context = True)
 @commands.has_permissions(manage_messages = True)
@@ -73,6 +78,7 @@ async def purge(ctx, limit:int):                                    #Purge Chat
 async def kick(ctx, member: discord.Member, *, reason = "None"):    #Kick Member
     await member.kick(reason=reason)
     await ctx.message.delete()
+    await ctx.send(f'{discord.Member} has been kicked by {ctx.message.author} for {reason}!')
 
 
 @Client.command(pass_context = True)
@@ -80,17 +86,13 @@ async def kick(ctx, member: discord.Member, *, reason = "None"):    #Kick Member
 async def say(ctx, File:str, *, arg = ""):                          #Escribir Chat
     await ctx.message.delete()
     if File != ".":
-        if File == "relations" or "communications" or "info" or "economic" or 'aduana' or 'servidor':
-            now = datetime.datetime.now()
-            await ctx.send(conf.formats.diccionary[File].format(month = Months[int(now.month)-1], day = now.day, year = now.year, arg = arg)) 
-        else:
             await ctx.send(arg)
     else:
         await ctx.send(arg)
 
 @Client.command(pass_context = True)
 @commands.has_permissions(administrator = True)
-async def embed(ctx,title = "", desc = "", thumbnail = "", *, arg = ""):
+async def embed(ctx,title = "", desc = "", thumbnail = "", *, arg = ""):#Escribir Chat
     if thumbnail == ".":    thumbnail = ctx.guild.icon_url
 
     Embed = Create_Embed(Title = title, Description = desc, Fields = (('1st field',f'{arg}'),('2nd field',f'{arg}')), Color = discord.Color.red(), Thumbnail = thumbnail)
